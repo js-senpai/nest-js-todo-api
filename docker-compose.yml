@@ -15,7 +15,7 @@ services:
       - nestjs-network
     volumes:
       - db:/data/db
-  api:
+  todoApi:
     build:
       dockerfile: Dockerfile
       context: .

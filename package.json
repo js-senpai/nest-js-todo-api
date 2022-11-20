@@ -31,6 +31,8 @@
     "@types/multer": "^1.4.7",
     "@types/passport-jwt": "^3.0.7",
     "@types/passport-local": "^1.0.34",
+    "bcrypt": "^5.1.0",
+    "class-validator": "^0.13.2",
     "eslint-plugin-sonarjs": "^0.16.0",
     "mongoose": "^6.7.2",
     "nest-winston": "^1.8.0",
