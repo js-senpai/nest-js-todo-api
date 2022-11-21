@@ -8,6 +8,9 @@ async function bootstrap() {
     // Replace default nest logger to winston logger
     logger: WinstonModule.createLogger(GetWinstonConfig()),
   });
+  // Added global prefix for routes
+  app.setGlobalPrefix('api');
+  // Start app
   await app.listen(3500);
 }
 bootstrap();

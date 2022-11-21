@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  mongodb:
+  mongotodo:
     image: mongo:latest
-    container_name: mongo
+    container_name: mongotodo
     restart: on-failure
     env_file:
       - .env
@@ -12,26 +12,26 @@ services:
     ports:
       - "27030:27017"
     networks:
-      - nestjs-network
+      - todo-network
     volumes:
-      - db:/data/db
+      - mongotodo:/data/db
   todoApi:
     build:
       dockerfile: Dockerfile
       context: .
     networks:
-      - nestjs-network
+      - todo-network
     env_file:
       - .env
     restart: on-failure
     ports:
       - "3500:3500"
     depends_on:
-      - mongodb
+      - mongotodo
 volumes:
-  mongodb:
+  mongotodo:
 networks:
-  nestjs-network:
+  todo-network:
     driver: bridge
 
 
