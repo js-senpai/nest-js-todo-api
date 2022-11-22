@@ -71,7 +71,7 @@ export class TodosService {
   async get({ id }: { id: string }): Promise<TodoDocument> {
     // Check if todo is existed
     const getTodo = await this.todoModel.findById(id);
-    if (!getTodso) {
+    if (!getTodo) {
       throw new NotFoundException(`Todo with ${id} not found`);
     }
     return getTodo;
