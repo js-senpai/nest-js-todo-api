@@ -16,6 +16,7 @@ export class ImagesService {
       this.configService.get('CLOUDINARY_PRESET'),
     );
     formData.append('public_id', file.originalname.replace(/(\..*)$/g, ''));
+    // Send image to cloudinary
     const { body } = await request(
       `${this.configService.get('CLOUDINARY_URL')}`,
       {

@@ -5,7 +5,7 @@ export enum UserRole {
   admin = 'admin',
 }
 
-export type UserDocument = User & Document;
+export type UserDocument = User & Document & { _id: string };
 
 @Schema({
   collection: 'user',

@@ -49,6 +49,7 @@ export class UsersService {
     if (!findUser) {
       throw new NotFoundException('User not found');
     }
+    // Check if user doesnt delete another user
     if (findUser.email !== user.email) {
       throw new ForbiddenException('You cant delete this user');
     }
