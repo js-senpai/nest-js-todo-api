@@ -1,12 +1,29 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { getMongoConfig } from '../../common/config/mongo.config';
+import { Logger } from '@nestjs/common';
+import { UsersController } from './users.controller';
+import { User, UserSchema } from '../../common/schema/user.schema';
 
 describe('UsersService', () => {
   let service: UsersService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [UsersService],
+      imports: [
+        // Config module
+        ConfigModule.forRoot(),
+        MongooseModule.forRootAsync({
+          imports: [ConfigModule],
+          useFactory: getMongoConfig,
+          inject: [ConfigService],
+        }),
+        MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+      ],
+      providers: [Logger, UsersService],
+      controllers: [UsersController],
     }).compile();
 
     service = module.get<UsersService>(UsersService);
