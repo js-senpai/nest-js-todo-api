@@ -22,9 +22,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: IAuthPayload): Promise<{
-    user: {
-      email: string;
-    };
+    email: string;
+    role: string;
   }> {
     const { sub } = payload;
     const user = await this.userModel.findOne({
@@ -33,11 +32,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!user) {
       throw new UnauthorizedException('User not found!');
     }
-    const { email } = user;
+    const { email, role } = user;
     return {
-      user: {
-        email,
-      },
+      role,
+      email,
     };
   }
 }

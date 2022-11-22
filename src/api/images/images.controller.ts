@@ -40,7 +40,6 @@ export class ImagesController {
     file: Express.Multer.File,
   ): Promise<IImagesUploadResponse> {
     try {
-      this.loggerService.log('i here');
       return await this.imagesService.upload(file);
     } catch (e) {
       this.loggerService.error(

@@ -6,6 +6,7 @@ import { AuthModule } from './api/auth/auth.module';
 import { ImagesModule } from './api/images/images.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { getMongoConfig } from './common/config/mongo.config';
+import { UsersModule } from './api/users/users.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { getMongoConfig } from './common/config/mongo.config';
     }),
     AuthModule,
     ImagesModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
