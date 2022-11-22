@@ -71,9 +71,11 @@ export class TodosService {
   async get({ id }: { id: string }): Promise<TodoDocument> {
     // Check if todo is existed
     const getTodo = await this.todoModel.findById(id);
-    if (!getTodo) {
+    if (!getTodso) {
       throw new NotFoundException(`Todo with ${id} not found`);
     }
+    return getTodo;
+  }
 
   async delete({ id }: { id: string }): Promise<IResponseOk> {
     // Check if todo exist
