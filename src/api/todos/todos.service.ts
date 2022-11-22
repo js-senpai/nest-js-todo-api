@@ -74,8 +74,6 @@ export class TodosService {
     if (!getTodo) {
       throw new NotFoundException(`Todo with ${id} not found`);
     }
-    return getTodo;
-  }
 
   async delete({ id }: { id: string }): Promise<IResponseOk> {
     // Check if todo exist
