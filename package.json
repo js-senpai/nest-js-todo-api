@@ -35,7 +35,6 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "eslint-plugin-sonarjs": "^0.16.0",
-    "husky": "^8.0.2",
     "lint-staged": "^11.0.3",
     "moment": "^2.29.4",
     "mongoose": "^6.7.2",

@@ -15,7 +15,7 @@ services:
       - todo-network
     volumes:
       - mongotodo:/data/db
-  todoApi:
+  todo-api:
     build:
       dockerfile: Dockerfile
       context: .
